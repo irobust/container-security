@@ -1,0 +1,13 @@
+#include <tunables/global>
+
+profile sample-one flags=(attach\_disconnected,mediate\_deleted)
+{
+    #include <abstractions/base>
+    
+    network,
+    capability,
+    file,
+    umount,
+    
+    deny /etc/** w,
+}
