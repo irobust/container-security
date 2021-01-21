@@ -4,6 +4,10 @@
 #   it { should be_blacklisted }
 # end
 
-describe file('/tmp/rabbitmq-ssl') do
+describe file('/tmp') do
+  it { should be_directory }
+end
+
+describe file('/tmp/powerlog') do
   it { should be_directory }
 end
