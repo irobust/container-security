@@ -1,4 +1,5 @@
 # Container Security
+## Day 1
 ### Hadolint
 * hadolint /path/to/Dockerfile
 * hadolint /path/to/Dockerfile --ignore DL3006
@@ -37,9 +38,24 @@
 * inspec exec linux_control_01.rb
 * inspec exec docker_control_01.rb
 * inspec exec inside-container_01.rb -t docker://eba962138009 <- Container ID
+* git clone https://github.com/dev-sec/linux-baseline
 * inspec exec linux-baseline-master/-t docker://eba962138009
 * inspec supermarket profiles
 * inspec supermarket exec dev-sec/linux-baseline -t docker://eba962138009
+
+## Day 2
+
+### Anchore
+* docker-compose up -d
+* docker-compose ps
+* docker-compose exec api
+* docker exec contianer-security_api_1 anchore-cli system status
+* docker exec contianer-security_api_1 anchore-cli system feeds list
+* docker-compose exec api anchore-cli --u admin --p foobar image add alpine:3.9
+* docker-compose exec api anchore-cli --u admin --p foobar image get alpine:3.9
+* docker-compose exec api anchore-cli --u admin --p foobar image content alpine:3.9 os
+* docker-compose exec api anchore-cli --u admin --p foobar image vuln alpine:3.9 all (Waiting until analyzed)
+* docker-compose exec api anchore-cli --u admin --p foobar evaluate check alpine:3.9
 
 ## References
 ### DAY 1
