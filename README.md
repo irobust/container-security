@@ -55,7 +55,54 @@
 * docker-compose exec api anchore-cli --u admin --p foobar image get alpine:3.9
 * docker-compose exec api anchore-cli --u admin --p foobar image content alpine:3.9 os
 * docker-compose exec api anchore-cli --u admin --p foobar image vuln alpine:3.9 all (Waiting until analyzed)
-* docker-compose exec api anchore-cli --u admin --p foobar evaluate check alpine:3.9
+* docker-compose exec api anchore-cli --u admin --p foobar evaluate check alpine:3.9 
+
+### Assign pod to node
+* kubectl apply -f nginx.node-selector.yaml
+* kubectl get po --watch
+* kubectl describe po/nginx
+* kubectl get nodes --show-labels
+* kubectl label no/docker-desktop disktype=ssd
+* kubectl get po
+* kubectl apply -f nginx.pod-affinity.yaml
+* kubectl delete -f nginx.node-selector.yaml
+
+```
+preferredDuringSchedulingIgnoredDuringExecution:
+- weight: 100
+    podAffinityTerm:
+        labelSelector:
+        matchExpressions:
+        - key: app
+            operator: In
+            values:
+            - web
+    topologyKey: "kubernetes.io/hostname"
+```
+
+### Kubernetes Secret
+* kubectl create secret generic apikey --from-literal=api_key=123456789
+* kubectl get secret apikey -o yaml
+* kubectl apply -f secretreader-deployment.yaml
+
+```
+    valueFrom:
+        secretKeyRef:
+            name: apikey
+            key: api_key
+```
+
+### Monitor container with CLI
+* docker stats [container name]
+* docker stats --format "{{.Container}} : {{.CPUPerc}}" [container name]
+* docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}" [container name]
+* docker stats --no-stream [container name]
+* curl --unix-socket /var/run/docker.sock http://localhost/containers/[container name]/stats
+* docker system events
+
+### Read Only container
+* docker container run --rm --read-only alpine:3.7 touch hello.txt
+* docker container run --rm --read-only --tmpfs /var alpine:3.7 touch hello.txt
 
 ## References
 ### DAY 1
@@ -71,3 +118,5 @@
 * https://dev-sec.io 
 
 ### DAY 2
+* https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node
+
