@@ -42,6 +42,7 @@
 * inspec supermarket exec dev-sec/linux-baseline -t docker://eba962138009
 
 ## References
+### DAY 1
 * https://vulnerablecontainers.org
 * https://securitytxt.org
 * https://github.com/hadolint/hadolint
@@ -53,3 +54,4 @@
 * https://docs.chef.io/inspec/resources/docker
 * https://dev-sec.io 
 
+### DAY 2
