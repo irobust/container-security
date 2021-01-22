@@ -101,8 +101,8 @@ preferredDuringSchedulingIgnoredDuringExecution:
 * docker system events
 
 ### Read Only container
-* docker container run --rm --read-only alpine:3.7 touch hello.txt
-* docker container run --rm --read-only --tmpfs /var alpine:3.7 touch hello.txt
+* docker container run --rm --read-only alpine touch hello.txt
+* docker container run --rm --read-only --tmpfs /var alpine touch hello.txt
 
 ## References
 ### DAY 1
