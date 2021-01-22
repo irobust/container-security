@@ -95,6 +95,7 @@ preferredDuringSchedulingIgnoredDuringExecution:
 * kubectl create secret generic apikey --from-literal=api_key=123456789
 * kubectl get secret apikey -o yaml
 * kubectl apply -f secretreader-deployment.yaml
+* kubectl exec -it po/secretreader-84f8f674f6-wmmx7 -- bash
 
 ```
     valueFrom:
@@ -114,6 +115,7 @@ preferredDuringSchedulingIgnoredDuringExecution:
 ### Read Only container
 * docker container run --rm --read-only alpine touch hello.txt
 * docker container run --rm --read-only --tmpfs /var alpine touch hello.txt
+* docker diff [Container ID]
 
 ## References
 ### DAY 1
@@ -129,5 +131,22 @@ preferredDuringSchedulingIgnoredDuringExecution:
 * https://dev-sec.io 
 
 ### DAY 2
-* https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node
+#### Image scanner
+* https://anchore.com/opensource/
 
+#### Managing resources
+* https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node
+* https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/
+
+#### Docker registry
+* https://docs.docker.com/registry/spec/api/
+* https://hub.docker.com/_/registry
+
+#### Secret Management
+* https://docs.docker.com/engine/swarm/secrets
+* https://kubernetes.io/docs/concepts/configuration/secret/
+* https://www.vaultproject.io
+
+#### Loging and monitoring
+* https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html
+* https://www.datadoghq.com
