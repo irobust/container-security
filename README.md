@@ -79,6 +79,17 @@ preferredDuringSchedulingIgnoredDuringExecution:
             - web
     topologyKey: "kubernetes.io/hostname"
 ```
+### Enviroment is not secure
+#### First Tab
+* docker run -it --rm -e SECRET=mypassword ubuntu /bin/bash
+* env | grep SECRET
+* sleep 5000
+
+#### Second Tab
+* docker inspect [container-name] -f "{{.Config.Env }}"
+* docker exec -it [container-name] pidof sleep
+* docker exec-it [container-name] /bin/bash
+* cat /proc/[process-id-from-pidof-command]/environ
 
 ### Kubernetes Secret
 * kubectl create secret generic apikey --from-literal=api_key=123456789
