@@ -49,8 +49,8 @@
 * docker-compose up -d
 * docker-compose ps
 * docker-compose exec api
-* docker exec contianer-security_api_1 anchore-cli system status
-* docker exec contianer-security_api_1 anchore-cli system feeds list
+* docker-compose exec api anchore-cli system status
+* docker-compose exec api anchore-cli system feeds list
 * docker-compose exec api anchore-cli --u admin --p foobar image add alpine:3.9
 * docker-compose exec api anchore-cli --u admin --p foobar image get alpine:3.9
 * docker-compose exec api anchore-cli --u admin --p foobar image content alpine:3.9 os
