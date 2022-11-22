@@ -12,6 +12,11 @@
 ### Hadolint
 * hadolint /path/to/Dockerfile
 * hadolint /path/to/Dockerfile --ignore DL3006
+* hadolint /path/to/Dockerfile -t error
+* hadolint /path/to/Dockerfile --error DL3006
+* hadolint /path/to/Dockerfile --no-fail
+* echo $? (On Mac)
+* $LastExitCode (On Windows PowerShell)
 
 ## D02 Patch Management Strategy
 ### Clair
@@ -21,7 +26,12 @@
 * goto dashboard at http://localhost:8080
 * docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock jgsqware/clairctl clairctl analyze -l infoslack/dvwa
 
-### Anchore
+#### ClairCtl command
+* clairctl analyze -l infoslack/dvwa
+* clairctl report -l infoslack/dvwa
+* clairctl report -l -f json infoslack/dvwa
+
+### Anchore Engine
 * docker-compose up -d
 * docker-compose ps
 * docker-compose exec api
@@ -65,6 +75,16 @@
 
 ## D03 Network Segment and Firewall
 ### Kube Hunter
+* kube-hunter
+* kube-hunter --list
+* kube-hunter --list --active
+* kube-hunter --remote [HOST]
+* kube-hunter --remote [HOST] --statistics
+* kube-hunter --cidr 192.168.0.0/24
+* kube-hunter --log LOGLEVEL
+* kube-hunter --report json
+* kubectl apply -f https://raw.githubusercontent.com/aquasecurity/kube-hunter/main/job.yaml
+* kubectl logs po/kube-hunter-xxxx
 
 ## D04 Secure Defaults and Hardening
 ### Docker Bench
