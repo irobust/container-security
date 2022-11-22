@@ -107,8 +107,12 @@
 * inspec exec inside-container_01.rb -t docker://eba962138009 <- Container ID
 * git clone https://github.com/dev-sec/linux-baseline
 * inspec exec linux-baseline-master/-t docker://eba962138009
+* inspec exec https://github.com/dev-sec/cis-docker-benchmark
+* inspec exec https://github.com/dev-sec/cis-kubernetes-benchmark
 * inspec supermarket profiles
 * inspec supermarket exec dev-sec/linux-baseline -t docker://eba962138009
+* inspec init profile --platform os my-profile 
+* inspec check my-profile
 
 ## D05 Maintain Security Context
 No content for this topic
