@@ -120,7 +120,7 @@ No content for this topic
 ## D06 Protect Secret
 ### Environment Variable is not secure
 #### First Tab
-* docker run -it --rm -e SECRET=mypassword ubuntu /bin/bash
+* docker run -it --rm -e SECRET=mypassword alpine /bin/bash
 * env | grep SECRET
 * sleep 5000
 
@@ -199,6 +199,12 @@ preferredDuringSchedulingIgnoredDuringExecution:
 * notary -s https://notary.docker.io list docker.io/library/alpine
 
 ### Porteris
+* git clone https://github.com/IBM/portieris
+* sh portieris/gencerts
+* Config tlsCert, tlsKey and caCert in Values.yaml
+* helm install portieris --create-namespace --namespace portieris ./portieris
+* kubectl apply -f portieris/cluster-image-policy.yml
+* kubectl apply -f portieris/helloworld-deployment.yml
 
 ## D09 Follow Immutable Paradigm
 ### Read Only container
