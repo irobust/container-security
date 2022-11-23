@@ -7,4 +7,4 @@ spec:
   - name: '*'
     policy:
       trust:
-        enabled: true
+        enabled: false

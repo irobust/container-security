@@ -253,6 +253,9 @@ preferredDuringSchedulingIgnoredDuringExecution:
 * https://kubernetes.io/docs/concepts/configuration/secret/
 * https://www.vaultproject.io
 
+#### TUF and Notary
+* https://www.youtube.com/watch?v=JK70k_B87mw&t=1420s
+
 #### Logging and monitoring
 * https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html
 * https://www.datadoghq.com
